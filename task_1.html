@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>body</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Roboto', sans-serif;
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+            background-color: #f6f7f9;
+        }
+
+        header {
+            height: 100px;
+            padding: 0 40px;
+        }
+
+        header > div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .fixced-conteiner {
+            max-width: 1000px;
+            height: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .first-block {
+            height: 300px;
+        }
+
+        section {
+            padding: 40px;
+        }
+
+        .first-block > div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            background-image: url('kartinki/man.png');
+            background-size: contain; 
+            background-repeat: no-repeat; 
+            background-position: right center;
+            height: 150%;
+            margin-left: 200px;
+
+
+        }
+
+        .services {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .services > div {
+            width: 200px;
+        }
+
+        .services img {
+            width: 150px;
+        }
+
+        .price-info {
+            margin: auto;
+            background-color: #3d52fe;
+            color: white;
+            width: 65%;
+
+        }
+
+        .light-button {
+            border: 1px solid black;
+            background-color: transparent;
+        }
+
+        .black-button {
+            background-color: #3d52fe;
+            border: 1px solid #3d52fe;
+            color: white;
+
+        }
+
+        button {
+            padding: 10px 30px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        footer {
+            padding: 40px;
+        }
+
+        .popup-conteiner {
+            background-color: #000000b3;
+            position: fixed; /*блок наложен на всю страницу сверху*/
+            width: 100%;
+            height: 100%;
+            display: none; /*скрывает форму*/ 
+            justify-content: center; /*чтобы форма размещалась по центру*/
+            align-items: center; /*чтобы форма размещалась по центру*/
+        }
+
+        .popup { /*для самой форма(белого квадрата)*/
+            background-color: white;
+            width: 300px;
+            height: 300px;
+            padding: 30px;
+            border-radius: 5px; /*скругление углов*/
+        }
+        .hyperlink {
+            position: relative;
+            color: black; /*задаём цвет ссылки*/
+            cursor: pointer;
+            line-height: 1; /*задаём высоту строки*/
+            text-decoration: none; /*убираем подчёркивание*/
+            margin-right: 20px;
+        }
+        .hyperlink:after {
+            display: block;
+            position: absolute;
+            left: 0; /*изменить на right:0;, чтобы изменить направление подчёркивания */
+            width: 0;/*задаём длинну линии до наведения курсора*/
+            height: 2px; /*задаём ширину линии*/
+            background-color: black; /*задаём цвет линии*/
+            content: "";
+            transition: width 0.3s ease-out; /*задаём время анимации*/
+        }
+
+        .hyperlink:hover:after,
+        .hyperlink:focus:after {
+            width: 100%; /*устанавливаем значение 100% чтобы ссылка подчёркивалась полностью*/
+        }
+
+        .footHyper {
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-size: 30px;
+        }
+        h2 {
+            font-size: 20px;
+            width: 55%;
+        }
+
+        .blue_block {
+            width: 50%;
+        }
+
+        .services_2 {
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .services_2 img {
+            width: 250px;
+            margin: 5px;
+            border: 5px solid pink;
+            padding-left: 5px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-right: 2px;
+        }
+
+        .services_3 > div {
+            width: 200px;
+        }
+
+        footer > div {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .social-icons {
+          display: flex;
+          justify-content: center;
+          list-style: none;
+          margin-top: 1rem;
+          margin-bottom: 1rem;
+          padding-left: 0;
+        }
+        .social-icons>li {
+          margin-left: 0.25rem;
+          margin-right: 0.25rem;
+        }
+        .social-icons a {
+          position: relative;
+          background-color: #eee;
+          display: block;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+          transition: background-color .3s ease-in-out;
+          width: 2.5rem;
+          height: 2.5rem;
+          border-radius: .25rem;
+        }
+        .social-icons a:hover {
+          background-color: #e0e0e0;
+        }
+        .social-icons a::before {
+          content: "";
+          position: absolute;
+          width: 1.2rem;
+          height: 1.2rem;
+          left: .65rem;
+          top: .65rem;
+          background: transparent no-repeat center center;
+          background-size: 100% 100%;
+        }
+        .social-icons .social-icon-inst::before {
+          background-image: url('kartinki/inst.png');
+        }
+        .social-icons .social-icon-fb::before {
+          background-image: url('kartinki/fb.png');
+        }
+        .social-icons .social-icon-vk::before {
+          background-image: url('kartinki/vk.png');
+        }
+        .social-icons .social-icon-telegram::before {
+          background-image: url('kartinki/telegram.png');
+        }
+        .social-icons .social-icon-youtube::before {
+          background-image: url('kartinki/you.png');
+        }
+
+        
+    </style>
+    <script>
+    document.addEventListener("DOMContentLoaded", function(){
+        var container = 
+    document.querySelector('.popup-container');
+        var popupButtons = 
+    document.querySelectorAll('.open-popup');
+        for (let i = 0; i < popupButtons.length; i++) {
+            popupButtons[i].addEventListener('click', function(){
+                container.style.display = 'flex';
+        });
+    }
+
+
+    container.addEventListener('click', function(event){
+        if(event.target == container) {
+            container.style.display = 'none';
+            }
+        });
+    });
+    
+    </script>
+</head>
+<body>
+    <div class="popup-conteiner">
+        <form class="popup"></form>
+    </div>
+    <header>
+        <div class="fixced-conteiner">
+            <div>
+                <a href="#" class="hyperlink">Услуги</a>
+                <a href="#" class="hyperlink">Портфолио</a>
+                <a href="#" class="hyperlink">Стоимость</a>
+            </div>
+            <div>
+                <span>+79117778899</span>
+                <button class="light-button open-popup">Заказать звонок</button>
+            </div>
+        </div>
+    </header>
+    <section class="first-block">
+        <div class="fixced-conteiner">
+            <h1>Иван Иванов</h1>
+            <p>Frontend-разработчик и веб-верстальщик</p>
+            <button class="black-button open-popup">Узнать больше</button>
+        </div>
+    </section>
+    <section>
+        <div class="fixced-conteiner">
+            <h2>Что я делаю</h2>
+            <div class="services">
+                <div>
+                <img src="kartinki/1.png" alt="">
+                Верстка лендинг-страниц и сайтов любой сложности</div>
+                <div>
+                <img src="kartinki/2.png" alt="">
+                Адаптивная верстка под все браузеры и устройства</div>
+                <div>
+                <img src="kartinki/3.png" alt="">
+                Frontend-верстка и программирование</div>
+                <div>
+                <img src="kartinki/4.png" alt="">
+                ИСправление и доработка существующей верстки</div>    
+            </div>
+            <button class="light-button open-popup">Узнать стоимость</button>
+        </div>
+    </section>
+    <section>
+        <div class="fixced-conteiner">
+            <h2>Примеры работ</h2>
+            <div class="services_2">
+                <div class="services_3">
+                <img src="kartinki/e1.png" alt="">
+                <p>Сайт психолога Петра Петрова</p></div>
+                <div class="services_3">
+                <img src="kartinki/e2.png" alt="">
+                <p>Сайт магазина детской одежды</p></div>
+                <div class="services_3">
+                <img src="kartinki/e3.png" alt="">
+                <p>Сайт магазина рыболов</p></div>
+
+            </div>
+        </div>
+    </section>
+    <section class="price-info">
+        <div class="fixced-conteiner">
+            <h2><p class="blue_block">Адаптивная верстка под все
+            устройства и браузеры от 1000р  
+            всего за 4 часа.*</p></h2>
+            <p class="blue_block"><font size="1">*Срок и стоимость рассчитываются<br>
+             индивидуально, в зависимости от сложности задач.</font></p>
+        </div>
+    </section>
+    <footer>
+        <div class="fixced-conteiner">
+            <div class="footHyper">
+                <a href="#" class="hyperlink">Услуги</a>
+                <a href="#" class="hyperlink">Портфолио</a>
+                <a href="#" class="hyperlink">Стоимость</a>
+            </div>
+            <div>
+                <span>ivanov@gmail.com</span> <br>
+                <span>+79117778899</span>
+            </div>
+            <div>
+                <button class="light-button open-popup">Заказать звонок</button>
+                <div>
+                    <ul class="social-icons">
+                    <li><a class="social-icon-inst" href="#" title="..." target="_blank" rel="noopener"></a></li>
+                    <li><a class="social-icon-fb" href="#" title="..." target="_blank" rel="noopener"></a></li>
+                    <li><a class="social-icon-vk" href="#" title="..." target="_blank" rel="noopener"></a></li>
+                    <li><a class="social-icon-telegram" href="#" title="..." target="_blank" rel="noopener"></a></li>
+                    <li><a class="social-icon-youtube" href="#" title="..." target="_blank" rel="noopener"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
